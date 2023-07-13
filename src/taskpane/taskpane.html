@@ -1,0 +1,48 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso Task Pane Add-in</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"/>
+
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="ms-font-m ms-welcome ms-Fabric">
+    <header class="ms-welcome__header ms-bgColor-neutralLighter">
+        <img width="90" height="90" src="../../assets/logo-filled.png" alt="Contoso" title="Contoso" />
+    </header>
+    <section id="sideload-msg" class="ms-welcome__main">
+        <h2 class="ms-font-xl">Please <a target="_blank" href="https://learn.microsoft.com/office/dev/add-ins/testing/test-debug-office-add-ins#sideload-an-office-add-in-for-testing">sideload</a> your add-in to see app body.</h2>
+    </section>
+    <main id="app-body" class="ms-welcome__main" style="display: none;">
+
+        <span class="ms-font-m" style="margin: 1rem;">This replicates on Excel Web (tested on windows)</span>
+        <span class="ms-font-m" style="margin: 1rem;">Before interacting with the buttons below, select any cell other than A1.</span>
+        <span class="ms-font-m" style="margin: 1rem;">We're trying to prove that a newly added worksheet will be scrolled so that the address you select is now on top left corner.</span>
+
+        <div style="margin: 1rem;">
+            <span class="ms-font-m">Clicking below adds a worksheet and merges two cells before activating the new sheet. It shall be scrolled to cell you selected.</span>
+            <button id='run-scrolled'>Add new worksheet (Unexpected behavior)</button>
+        </div>
+        <div style="margin: 1rem;">
+            <span class="ms-font-m">Clicking below adds a worksheet but does not merge any cells before activating the new sheet. The issue shall not replicate.</span>
+            <button id='run-not-scrolled'>Add new worksheet (Expected behavior)</button>
+        </div>
+
+    </main>
+</body>
+
+</html>
